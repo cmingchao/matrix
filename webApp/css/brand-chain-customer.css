@@ -1,0 +1,16 @@
+/*brand-chain-customer*/
+.brand-chain-customer{
+    height:220px;
+}
+.brand-chain-customer .col{
+    text-align: center;
+}
+.brand-chain-customer .col .img{
+    margin-top: 30px;
+}
+.brand-chain-customer .col .chain-name{
+    margin:  6px 0;
+}
+.brand-chain-customer .col .value{
+    font-size: 24px;
+}

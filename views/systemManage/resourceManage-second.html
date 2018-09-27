@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>资源管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/form-area.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="form-area" ng-controller="resourceManageSecond">
+                <div class="item">
+                    <span>资源名 : </span>
+                    <input type="text" ng-model="resourceName">
+                </div>
+                <div class="item">
+                    <span>资源编码 : </span>
+                    <input type="text" ng-model="resourceCode">
+                </div>
+                <div class="item">
+                    <span>资源地址 : </span>
+                    <input type="text" ng-model="resourceUrl">
+                </div>
+                <div class="item">
+                    <span>logo图片 : </span>
+                    <input type="text" ng-model="logoImg">
+                </div>
+                <div class="item">
+                    <span>父亲资源 : </span>
+                    <select style="width:240px;height:40px;" ng-model="selectedName">
+                        <option value="0">无</option>
+                        <option ng-repeat="item in parentResourceList" value="{{item.id}}">{{item.auth_name}}</option>
+                    </select>
+                </div>
+                <div class="item btn-group">
+                    <span class="hidden-xs">&nbsp;</span>
+                    <div class="btn-normal confirm" ng-click="addResource()">确定</div>
+                    <div class="btn-normal cancel" ng-click="back()">取消</div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/resourceManage-second.js"></script>
+</body>
+</html>

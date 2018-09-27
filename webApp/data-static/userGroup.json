@@ -1,0 +1,66 @@
+[
+  {
+    "id":1,
+    "type":"A",
+    "name":"重要挽留客户",
+    "RFM":"R↓ F↓ M↑",
+    "value":0,
+    "src":"../../image/userAnalysis/pic_s_detention.png"
+  },
+  {
+    "id":2,
+    "type":"B",
+    "name":"重要发展客户",
+    "RFM":"R↑ F↓ M↑",
+    "value":0,
+    "src":"../../image/userAnalysis/pic_s_develop.png"
+  },
+  {
+    "id":3,
+    "type":"C",
+    "name":"重要价值客户",
+    "RFM":"R↑ F↑ M↑",
+    "value":0,
+    "src":"../../image/userAnalysis/pic_s_worth.png"
+  },
+  {
+    "id":4,
+    "type":"D",
+    "name":"重要保持客户",
+    "RFM":"R↓ F↑ M↑",
+    "value":0,
+    "src":"../../image/userAnalysis/pic_s_keep.png"
+  },
+  {
+    "id":5,
+    "type":"①",
+    "name":"一般挽留客户",
+    "RFM":"R↓ F↓ M↓",
+    "value":0,
+    "src":"../../image/userAnalysis/pic_o_detention.png"
+  },
+  {
+    "id":6,
+    "type":"②",
+    "name":"一般发展客户",
+    "RFM":"R↑ F↓ M↓",
+    "value":0,
+    "src":"../../image/userAnalysis/pic_o_develop.png"
+  },
+  {
+    "id":7,
+    "type":"③",
+    "name":"一般价值客户",
+    "RFM":"R↑ F↑ M↓",
+    "value":0,
+    "src":"../../image/userAnalysis/pic_o_worth.png"
+  },
+  {
+    "id":8,
+    "type":"④",
+    "name":"一般保持客户",
+    "RFM":"R↓ F↑ M↓",
+    "value":0,
+    "src":"../../image/userAnalysis/pic_o_keep.png"
+  }
+]

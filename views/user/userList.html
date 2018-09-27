@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../lib/css/paging.css">
+    <link rel="stylesheet" href="../../css/search-condition.css">
+    <link rel="stylesheet" href="../../css/userList.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container" ng-controller="controllerList">
+            <% include ../map.html %>
+            <a id="addUser" class="btn-normal" href="/html/addUser">添加</a>
+            <div class="row row-1">
+                <div class="col-xs-12">
+                    <div class="condition-sec clearfix">
+                        <div class="item">
+                            <span>用户名 : </span>
+                            <input type="text" ng-blur="search()" ng-change="state=1" ng-model="name">
+                        </div>
+                        <div class="item btn-group">
+                            <span>性别 : </span>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="text-container"></span>
+                                <span class="dropdown"></span>
+                            </button>
+                            <span class="clear">×</span>
+                            <input class="hidden" ng-change="state=1;search()" type="text" ng-model="sex">
+                            <ul class="dropdown-menu">
+                                <li data-value="{{item.value}}" ng-bind="item.name" ng-repeat="item in sexList"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-2">
+                <div class="tips col-xs-12">
+                    共<span ng-bind="total || 0"></span>位用户
+                </div>
+            </div>
+            <div class="row row-3">
+                <ul class="list clearfix">
+                    <li class="item" ng-repeat="item in list">
+                        <div class="item-wrapper">
+                            <a href="/html/userDetails?userPhone={{item.phone}}">
+                                <p class="username font-middle"><span ng-bind="item.name || '无'"></span></p>
+                                <p class="sex">性别 : <span ng-bind="item.sex || '无'"></span></p>
+                                <p class="age">年龄 : <span ng-bind="item.age?item.age+'岁':'无'"></span></p>
+                                <p class="costTime">累计消费次数 : <span ng-bind="item.costTime || 0"></span><span>次</span></p>
+                                <!--<p class="recommend">综合指数 : <span class="font-large" ng-bind="item.recommend || 0"></span></p>-->
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="box" id="box"></div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../lib/js/paging.js"></script>
+<script src="../../js/userList.js"></script>
+</body>
+</html>

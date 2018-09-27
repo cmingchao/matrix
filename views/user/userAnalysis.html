@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>用户RFM分析</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/userAnalysis.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container" ng-controller="container">
+            <% include ../map.html %>
+            <div class="row">
+                <div class="col col-lg-6 col-sm-12">
+                    <div class="canvas-item RFM-model">
+                        <div class="item-title">RFM模型展示</div>
+                        <div class="angle angle-top"></div>
+                        <canvas id="userRFM"></canvas>
+                        <div class="angle angle-bottom"></div>
+                        <div class="remarks">
+                            <div class="progressBox">
+                                <span>R↑</span>
+                                <div class="rangeBox">
+                                    <input id="r" class="range" ng-model="type_r" type="range" min="0" max="5" step="1" data-type="R" onchange="myChange(this)" ng-change="screenUser();">
+                                </div>
+                                <span>R↓</span>
+                            </div>
+                            <div class="progressBox">
+                                <span>F↓</span>
+                                <div class="rangeBox">
+                                    <input id="f" class="range" ng-model="type_f" type="range" min="0" max="5" step="1" data-type="F" onchange="myChange(this)" ng-change="screenUser();">
+                                </div>
+                                <span>F↑</span>
+                            </div>
+                            <div class="progressBox">
+                                <span>M↓</span>
+                                <div class="rangeBox">
+                                    <input id="m" class="range" ng-model="type_m" type="range" min="0" max="5" step="1" data-type="M" onchange="myChange(this)" ng-change="screenUser();">
+                                </div>
+                                <span>M↑</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-6 col-sm-12">
+                    <div class="canvas-item RFM-details clearfix">
+                        <div class="row">
+                            <user ng-repeat="item in groupList.slice(0,4)"></user>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <user ng-repeat="item in groupList.slice(4)"></user>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/three84.js"></script>
+<script src="../../lib/js/OrbitControls.js"></script>
+<script src="../../lib/js/echarts.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/userAnalysis.js"></script>
+</body>
+</html>

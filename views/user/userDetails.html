@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>用户详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../lib/css/paging.css">
+    <link rel="stylesheet" href="../../css/userDetails.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="row row-1">
+                <div class="col col-lg-6 col-md-6 col-sm-12">
+                    <div class="canvas-item user-details text-c" ng-controller="userDetails">
+                        <p class="username font-middle" ng-bind="name || '无'"></p>
+                        <p class="register-time">入驻时间: <span ng-bind="registerTime"></span></p>
+                        <div class="row base-info">
+                            <div class="col col-xs-4">
+                                <hr class="back-pomo">
+                                <p class="name">性别</p>
+                                <p class="value" ng-bind="sex || '未知'"></p>
+                            </div>
+                            <div class="col col-xs-4">
+                                <hr class="back-cpos">
+                                <p class="name">出生年月</p>
+                                <p class="value" ng-bind="birthday || '未知'"></p>
+                            </div>
+                            <div class="col col-xs-4">
+                                <hr class="back-probe">
+                                <p class="name">婚姻状况</p>
+                                <p class="value" ng-bind="marriage || '未知'"></p>
+                            </div>
+                        </div>
+                        <div class="col col-xs-12 user-phone">
+                            <img src="../../image/tel.png" alt="电话">
+                            <span ng-bind="phone || '无'"></span>
+                        </div>
+                        <div class="row cost-info">
+                            <div class="col col-xs-4">
+                                <p class="name">累计消费金额</p>
+                                <p class="value color-pomo" ng-bind="costTotal.toFixed(2) || 0"></p>
+                            </div>
+                            <div class="col col-xs-4">
+                                <p class="name">累计消费次数</p>
+                                <p class="value color-cpos" ng-bind="costTimes || 0"></p>
+                            </div>
+                            <div class="col col-xs-4">
+                                <p class="name">最近一次消费时间</p>
+                                <p class="value color-probe" ng-bind="lastCost || '未知'"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--这块不要了-->
+                <!--<div class="col col-lg-6 col-md-6 col-sm-12">
+                    <div class="canvas-item composite" ng-controller="composite">
+                        <div class="item-title">综合指数</div>
+                        <div id="composite"></div>
+                        <div class="text-c">综合指数: <span class="font-larger" ng-bind="composite || 0"></span></div>
+                    </div>
+                </div>-->
+                <div class="col col-lg-6 col-md-6 col-sm-12">
+                    <div class="canvas-item verify-total" ng-controller="verifyTotal">
+                        <div class="item-title">核销统计</div>
+                        <div id="verify-total"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-2">
+                <!--已经不要这块了-->
+                <!--<div class="col col-lg-5 col-md-6 col-sm-12">
+                    <div class="canvas-item user-route-today" ng-controller="userRouteToday">
+                        <div class="item-title">用户当日行踪轨迹</div>
+                        <div class="route-img"><img src="{{img_url}}" alt="用户当日行踪轨迹"></div>
+                        <div class="floors text-c">
+                            <span class="floor-item" ng-class="(item.active)?'color-pomo':''"
+                                  ng-repeat="item in floors" ng-bind="item.name || '无'"
+                                  ng-click="chooseFloor($index)"></span>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="col col-lg-12 col-md-12 col-sm-12">
+                    <div class="canvas-item user-route-three-month clearfix" ng-controller="userRouteThreeMonth">
+                        <div class="item-title">用户近三月行踪轨迹</div>
+                        <ul class="list clearfix">
+                            <li class="item" ng-repeat="item in list">
+                                <span class="time" ng-bind="item.time || '未知'"></span> :
+                                消费品牌<span class="color-probe" ng-bind="item.store_name || '无'"></span>,
+                                <span ng-bind="item.data_from"></span>核销<span class="color-pomo" ng-bind="item.verifyNum || 0"></span>次,
+                                共消费金额<span class="color-probe details" ng-bind="item.amount || 0"></span>元
+                            </li>
+                            <li ng-show="list.length===0">暂无数据!</li>
+                        </ul>
+                        <div class="box row" id="box-user-route"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-3">
+                <div class="col col-xs-12">
+                    <div class="canvas-item user-hobby">
+                        <div class="item-title">用户偏好品牌</div>
+                        <div class="row">
+                            <div class="col col-lg-6 col-sm-12" ng-controller="userHobby">
+                                <div id="hobby"></div>
+                            </div>
+                            <div class="col col-lg-6 col-sm-12" ng-controller="potentialHobby">
+                                <div id="potential-hobby">
+                                    <div class="base-line color-pomo font-middle text-c">
+                                        <div class="text">潜在偏好品牌</div>
+                                        <div class="potential-item index-{{$index}}" ng-repeat="item in potentialHobby  track by $index" ng-bind="item || '无'" ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-4">
+                <div class="col col-xs-12">
+                    <div class="canvas-item cost-list clearfix" style="overflow-x: auto" ng-controller="costList">
+                        <div class="item-title">消费列表</div>
+                        <table cellspacing="0" cellpadding="0" class="list clearfix">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>品牌名称</th>
+                                    <th>业态</th>
+                                    <th>消费次数</th>
+                                    <th>最近一次消费时间</th>
+                                    <th>最近一次消费金额</th>
+                                    <th>消费总金额</th>
+                                    <th>推送量</th>
+                                    <th>核销量</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in list">
+                                    <td ng-bind="(pageIndex-1)*10+$index+1 || 0"></td>
+                                    <td ng-bind="item.name || '未知'"></td>
+                                    <td ng-bind="item.retail || '未知'"></td>
+                                    <td ng-bind="item.num+1 || 0"></td>
+                                    <td ng-bind="item.recent_time || '未知'"></td>
+                                    <td ng-bind="item.recent_amount || 0"></td>
+                                    <td ng-bind="item.total_amount || 0"></td>
+                                    <td>
+                                        <span class="color-pomo" ng-show="item.data_from.POMO.push">POMO-{{item.data_from.POMO.push || 0}},</span>
+                                        <span class="color-cpos">CPOS-{{item.data_from.CPOS.push || 0}}</span>
+                                    </td>
+                                    <td>
+                                        <span class="color-pomo" ng-show="item.data_from.POMO.apply">POMO-{{item.data_from.POMO.apply || 0}},</span>
+                                        <span class="color-cpos">CPOS-{{item.data_from.CPOS.apply || 0}}</span>
+                                    </td>
+                                </tr>
+                                <tr ng-show="list.length===0"><td>暂无数据!</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="box row" id="box-user-cost-list"></div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/echarts.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../lib/js/paging.js"></script>
+<script src="../../js/userDetails.js"></script>
+</body>
+</html>

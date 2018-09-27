@@ -1,0 +1,91 @@
+
+.condition-sec{
+    box-shadow: 0 0 10px 3px rgba(0,0,0,0.1);
+}
+
+/*reset bootstrap start*/
+.btn-group > .btn{
+    float: none;
+    width:180px;
+    height:40px;
+    text-align: left;
+    padding-left: 10px;
+    border-radius: 3px !important;
+}
+.btn-group > .btn > .dropdown{
+    position: absolute;
+    right:10px;
+    top:16px;
+    width:14px;
+    height:8px;
+    background: url("../image/drop-down.png");
+}
+.btn-group.open .dropdown-toggle{
+    box-shadow: none;
+    border-color: #ccc;
+    background-color: transparent;
+}
+.dropdown-menu{
+    width:180px;
+}
+.dropdown-menu > li{
+    height:30px;
+    padding-left: 10px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.dropdown-menu > li:hover{
+    color: #8C7EEC;
+}
+/*reset bootstrap end*/
+
+
+.condition-sec{
+    padding: 30px 30px 10px;
+}
+.condition-sec .item{
+    position: relative;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+    .condition-sec .item{
+        margin-right: 0;
+    }
+}
+.condition-sec .item > span{
+    color: #666;
+    display: block;
+    float: left;
+    width: 70px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+}
+.condition-sec .item > input{
+    width:180px;
+    height:40px;
+    border-radius: 3px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border: 1px solid #CCC;
+}
+.condition-sec .item .clear{
+    position: absolute;
+    top:1px;
+    color: #d4d4d4;
+    font-size: 18px;
+    z-index: 5;
+    cursor: pointer;
+    width:auto;
+    font-weight: bold;
+}
+.condition-sec .item .clear:hover{
+    color: #E80400;
+}
+
+/*修改日期input[type="date"]的默认样式*/
+input[type="date"]::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+}

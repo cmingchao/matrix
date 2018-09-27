@@ -1,0 +1,172 @@
+.row-1 .canvas-item{
+    height:540px;
+}
+.row-2 .canvas-item{
+    height:340px;
+}
+.row-2 .canvas-item.realtimeDynamics{
+    overflow: hidden;
+}
+/*销售及客流整体概览*/
+.customer{
+    /*padding: 0 30px;*/
+}
+.customer .wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%,-50%);
+}
+.customer .circle{
+    width:100%;
+    padding: 30px 0;
+    position: relative;
+    text-align: center;
+}
+@media (max-width: 767px) {
+    .canvas-item.customer{
+        height:420px;
+    }
+}
+.customer .circle img{
+    width:300px;
+    max-width: 100%;
+}
+.customer .toggle-customer-sale > span {
+    cursor: pointer;
+}
+.customer .circle .text{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.customer .circle .text .showType{
+    color: #666;
+}
+.customer .circle .text .value{
+    color: #333;
+    font-weight: bolder;
+    word-break: break-all;
+}
+.customer .values>*{
+    text-align: center;
+    word-break: break-word;
+}
+
+
+/*实时客流*/
+#real-time-customer,
+#real-time-identify
+{
+    width: 100%;
+    height:260px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #E6E6E6;
+}
+.real-time .details .details-title{
+    color: #666;
+    margin-bottom: 25px;
+}
+.real-time .details .item .circle{
+    width:70px;
+    height:70px;
+    margin: 0 auto 10px;
+    text-align: center;
+    line-height: 70px;
+    border-radius: 50%;
+    background-color: #f3f3f3;
+}
+.real-time .details .item p{
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/*实时动态*/
+.realtimeDynamics .item-title .more{
+    font-size: 14px;
+    font-weight: normal;
+}
+.realtimeDynamics .item-title .more:hover{
+    color: rgba(140,126,236,0.8);
+}
+.realtimeDynamics .list > li{
+    margin-top: 16px;
+    color: #666;
+}
+.realtimeDynamics .list > li .time{
+    color: #000;
+    font-weight: bold;
+}
+
+
+/*触达量*/
+.touch,
+.touch-transmutation{
+    height:100%;
+}
+#touch-amount,
+#touch-transmutation
+{
+    width:100%;
+    height:258px;
+}
+.touch-transmutation{
+    border-left: 1px solid #e6e6e6;
+}
+.touch-transmutation > .row{
+    padding-left: 30px;
+    position: relative;
+    height:100%;
+}
+.touch-transmutation > .row .pomo,
+.touch-transmutation > .row .cpos{
+    margin-top: 10px;
+}
+.touch-transmutation .row > .text{
+    position: relative;
+    padding-left: 80px;
+}
+.touch-transmutation .row .circle{
+    width:70px;
+    height:70px;
+    position: absolute;
+    left:0;
+    top:50%;
+    line-height:70px;
+    margin-top: -35px;
+    border-radius: 50%;
+    color: RGB(93, 189, 188);
+    background-color: RGBA(93,189,188,.2);
+}
+.touch-transmutation .pomo .circle{
+    color: RGB(140,126,236);
+    background-color: RGBA(140,126,236,.2);
+}
+.touch-transmutation .row .row > *{
+    display: inline-block;
+}
+@media (max-width: 991px) {
+    .row-2 .canvas-item{
+        height:auto;
+    }
+    .touch{
+        height:50%;
+        border-right: none;
+    }
+    .touch-transmutation{
+        border-left:none;
+        border-top: 1px solid #e6e6e6;
+    }
+    .touch-transmutation > .row{
+        padding-left: 0;
+        padding-top: 15px;
+    }
+}
+/*****************************修改*****************************/
+.customer .wrapper:first-of-type{
+    margin-top: -11px;
+}

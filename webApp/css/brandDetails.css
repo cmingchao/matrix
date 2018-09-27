@@ -1,0 +1,59 @@
+/*mainBrand*/
+.mainBrand .add-time{
+    color:#666;
+    margin-top: 3px;
+}
+.mainBrand .main-brand-name{
+    margin-top: 0;
+}
+.mainBrand .view-details  .button:hover{
+    background-color: rgba(140,126,236,.8);
+}
+/*today-relate*/
+.today-relate{
+    margin-bottom: 0;
+    padding: 30px;
+}
+@media (max-width: 767px) {
+    .today-relate .circle {
+        width: 70px;
+        height: 70px;
+    }
+    .today-relate{
+        padding: 15px;
+    }
+}
+.today-relate .circle{
+    margin-top: 0;
+}
+.today-relate .col .value{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.today-relate .col .value.total{
+    margin-top: 11px;
+}
+
+.earningsTotal{
+    height:100px;
+    background-color: #F3F3F3;
+}
+.earningsTotal .name{
+    color: #666;
+    margin-bottom: 3px;
+}
+.earningsTotal .value{
+    font-size: 24px;
+}
+
+/*composite*/
+#composite{
+    height:316px;
+}
+
+
+#sex,
+#age,
+#verify{
+    height:244px;
+}

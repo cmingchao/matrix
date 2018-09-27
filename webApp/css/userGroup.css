@@ -1,0 +1,82 @@
+/*RFM-model*/
+.RFM-model .item-title{
+    margin-bottom: 20px;
+}
+.RFM-model .item-title > a:hover{
+    color: rgba(140,126,236,0.8);
+}
+
+/*RFM-details*/
+.RFM-details .rfm-img{
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+.RFM-details .rfm-value{
+    margin-top: 25px;
+    margin-bottom: 80px;
+}
+.RFM-details .rfm-value > span{
+    font-size: 24px;
+}
+.RFM-details .col.item{
+    margin-bottom: 40px;
+}
+.RFM-details .col.item .img{
+    margin-bottom: 30px;
+}
+.RFM-details .col.item .rfm{
+    color: #666;
+    margin-bottom: 10px;
+}
+
+#consume,#sex{
+    height:250px;
+}
+
+#age{
+    height:280px;
+}
+#marriage{
+    height:180px;
+}
+
+/*marriage*/
+.marriage .item .circle{
+    width:70px;
+    height:70px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    line-height: 70px;
+    background-color: #F3F3F3;
+}
+/************************修改**************************/
+.list{
+    padding-bottom: 60px;
+    position: relative;
+}
+/*table*/
+.list table{
+    max-width: 100%;
+    width:100%;
+    overflow: auto;
+}
+.list th{
+    height: 50px;
+    min-width: 50px;
+    padding-left: 2%;
+    background-color: #FCDC85;
+}
+.list td{
+    height: 46px;
+    padding-left: 2%;
+}
+.list td .btn{
+    color: #0b97c4;
+    padding: 0;
+
+}
+.box{
+    bottom:10px;
+    margin-bottom: 0;
+
+}

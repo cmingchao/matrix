@@ -1,0 +1,41 @@
+.row-1 .canvas-item{
+    height:660px;
+}
+.row-2 .canvas-item{
+    height:360px;
+}
+
+#drainageRank,
+#guestRank{
+    height:338px;
+}
+/*brandDataStatistics*/
+.brandDataStatistics .item-title{
+    margin-bottom: 30px;
+}
+.brandDataStatistics table{
+    width:100%;
+    overflow: auto;
+}
+.brandDataStatistics th{
+    height: 50px;
+    padding-left: 2%;
+    background-color: #FCDC85;
+}
+.brandDataStatistics td{
+    height: 36px;
+    padding-left: 2%;
+}
+/*****************************************/
+.brandDataStatistics th{
+    cursor: pointer;
+    background-color: #E5E5E5;
+}
+.brandDataStatistics th.active,
+.brandDataStatistics th:hover
+{
+    background-color: #FCDC85;
+}
+.box{
+    margin-bottom: 85px;
+}

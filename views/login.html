@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../lib/css/base.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+<div id="page">
+    <div class="login-sec col-xs-12" ng-controller="login">
+        <div class="row">
+            <div class="left-bg col col-sm-6 col-xs-12"></div>
+            <div class="right-input col col-sm-6 col-xs-12">
+                <div class="color-pomo font-larger title">用户登录</div>
+                <div class="item-input username clearfix">
+                    <label class="ico fl"></label>
+                    <input class="fl" autofocus maxlength="20" ng-model="username" type="text" placeholder="请输入用户名">
+                </div>
+                <div class="item-input userpwd clearfix">
+                    <label class="ico fl"></label>
+                    <input class="fl" autofocus maxlength="16" ng-keypress="keyPress($event)" ng-model="password" type="password" placeholder="请输入密码">
+                </div>
+                <div class="remember-user">
+                    <input type="checkbox" id="remember-user">
+                    <label for="remember-user">记住用户名</label>
+                </div>
+                <div id="login" class="text-c" ng-click="login()">登录</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../lib/js/jquery-1.9.1.js"></script>
+<script src="../lib/js/bootstrap.js"></script>
+<script src="../lib/js/angular1.2.3.js"></script>
+<script src="../lib/js/base.js"></script>
+<script src="../js/login.js"></script>
+</body>
+</html>

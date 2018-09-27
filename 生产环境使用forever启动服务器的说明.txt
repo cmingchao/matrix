@@ -1,0 +1,7 @@
+在当前目录打开命令行工具，运行命令:
+
+forever start -e logs/matrix-v1.2-err.log a server.js
+
+（注:如当前环境未安装forever，请先全局安装forever，运行命令:npm install forever -g 后再行尝试使用forever启动服务）。
+
+命令解释:-e logs/matrix-v1.2-err.log -a 输出未捕获错误到logs/matrix-v1.2-err.log文件中

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>品牌库</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/brandLib.css">
+    <link rel="stylesheet" href="../../css/brand-today-relate.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="row row-1">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="canvas-item" ng-controller="saleStatistics">
+                        <div class="item-title">品牌销售统计</div>
+                        <div class="canvas-dom" id="sale-statistics"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="today-relate" ng-controller="todayRelate">
+                        <div class="row">
+                            <div class="drainage col col-xs-4">
+                                <div class="circle"><img src="/image/tuijian.png" alt="引流"></div>
+                                <p>今日推荐最多</p>
+                                <p class="value"><span ng-bind="drainage.value || 0"></span>次</p>
+                                <a class="name color-pomo" ng-bind="drainage.name || '无'" ng-href="{{drainage.href || '#'}}"></a>
+                                <!--<p class="retail" ng-bind="drainage.retail || '无'"></p>-->
+                            </div>
+                            <div class="guest col col-xs-4">
+                                <div class="circle"><img src="/image/hexiao.png" alt="获客"></div>
+                                <p>今日核销最高</p>
+                                <p class="value"><span ng-bind="guest.value || 0"></span>次</p>
+                                <a class="name color-cpos" ng-bind="guest.name || '无'" ng-href="{{guest.href || '#'}}"></a>
+                                <!--<p class="retail" ng-bind="guest.retail || '无'"></p>-->
+                            </div>
+                            <div class="transmutation col col-xs-4">
+                                <div class="circle"><img src="/image/pic_zhl.png" alt="转化率"></div>
+                                <p>今日转化率最高</p>
+                                <p class="value"><span ng-bind="transmutation.value || 0"></span>%</p>
+                                <a class="name color-probe" ng-bind="transmutation.name || '无'" ng-href="{{transmutation.href || '#'}}"></a>
+                                <!--<p class="retail" ng-bind="transmutation.retail || '无'"></p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-2">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="canvas-item" ng-controller="fifthDrainage">
+                        <div class="item-title">今日推荐品牌前五名</div>
+                        <div class="canvas-dom" id="fifth-drainage"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="canvas-item" ng-controller="fifthGuest">
+                        <div class="item-title">今日核销品牌前五名</div>
+                        <div class="canvas-dom" id="fifth-guest"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="canvas-item" ng-controller="fifthTransmutation">
+                        <div class="item-title">今日转化率前五名</div>
+                        <div class="canvas-dom" id="fifth-transmutation"></div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/echarts.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/brandLib.js"></script>
+</body>
+</html>

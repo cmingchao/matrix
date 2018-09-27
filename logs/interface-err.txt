@@ -1,0 +1,26 @@
+brandSaleStatistics  ReferenceError: data is not defined  2018-7-12 18:48:03 
+brandSaleStatistics  ReferenceError: data is not defined  2018-7-12 18:48:49 
+brandSaleStatistics  ReferenceError: data is not defined  2018-7-12 18:49:04 
+brandSaleStatistics  ReferenceError: data_new is not defined  2018-7-12 19:07:33 
+brandSaleStatistics  ReferenceError: data_new is not defined  2018-7-12 19:07:48 
+brandSaleStatistics  Error: Can't set headers after they are sent.  2018-7-12 19:15:07 
+brandSaleStatistics  Error: Can't set headers after they are sent.  2018-7-12 19:15:57 
+brandSaleStatistics  Error: Can't set headers after they are sent.  2018-7-12 19:16:36 
+brandSaleStatistics  Error: Can't set headers after they are sent.  2018-7-12 19:17:32 
+brandSaleStatistics  ReferenceError: arr is not defined  2018-7-12 19:44:38 
+brandSaleStatistics  ReferenceError: arr is not defined  2018-7-12 19:45:04 
+brandSaleStatistics  ReferenceError: arr is not defined  2018-7-12 19:45:36 
+login  Error: connect ETIMEDOUT  2018-7-23 16:12:31 
+login  Error: connect ETIMEDOUT  2018-7-23 16:12:59 
+userGroupAnalysis  undefined  2018-7-23 18:08:25 
+userGroupAnalysis  undefined  2018-7-23 18:08:33 
+userGroupAnalysis  undefined  2018-7-23 18:09:31 
+login  Error: connect ECONNREFUSED 192.168.1.102:3306  2018-9-12 12:43:12 
+login  Error: connect ECONNREFUSED 192.168.1.102:3306  2018-9-12 12:43:20 
+login  Error: connect ECONNREFUSED 192.168.1.102:3306  2018-9-12 12:44:25 
+login  Error: connect ECONNREFUSED 192.168.1.102:3306  2018-9-12 12:44:39 
+login  Error: connect ECONNREFUSED 192.168.1.102:3306  2018-9-12 12:44:46 
+login  Error: connect ECONNREFUSED 192.168.1.102:3306  2018-9-12 12:44:49 
+login  Error: connect ECONNREFUSED 192.168.1.102:3306  2018-9-12 12:45:14 
+login  Error: connect ECONNREFUSED 192.168.1.102:3306  2018-9-12 12:45:34 
+login  Error: connect ECONNREFUSED 192.168.1.102:3306  2018-9-12 12:45:41 

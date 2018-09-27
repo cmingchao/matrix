@@ -1,0 +1,9 @@
+
+<div id="map" class="font-middle clearfix">
+    <%if(typeof map === "object"){%>
+    <span class="fl"><%= map.name %></span>
+    <span class="fr back" ng-click="history.back();">返回</span>
+    <%}else{%>
+    <span><%= map %></span>
+    <%}%>
+</div>

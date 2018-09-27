@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>品牌关联</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../lib/css/paging.css">
+    <link rel="stylesheet" href="../../css/brand-relation.css">
+    <link rel="stylesheet" href="../../css/brandRelation.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="row row-1">
+                <div class="col-lg-6 col-xs-12" ng-controller="brandRelation">
+                    <div class="canvas-item brand-relation">
+                        <div class="item-title clearfix">
+                            <div class="text">品牌关联图</div>
+                            <div class="search fr">
+                                <div class="input-group">
+                                    <hr>
+                                    <span class="clear hide" ng-click="clearSearch();">×</span>
+                                    <input type="text" class="form-control hide-mine"
+                                          ng-model="searchName" ng-blur="searchBrand()" placeholder="品牌名称">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default btn-normal" type="button"></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="angle angle-top"></div>
+                        <div id="brandRelation"></div>
+                        <div class="angle angle-bottom"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12" ng-controller="brandDataStatistics">
+                    <div class="canvas-item brandDataStatistics">
+                        <div class="item-title">品牌链分析<!--<span class="font-small">(单位:元)</span>--></div>
+                        <table cellpadding="0" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th colspan="2" ng-class="n===3?'active':''" ng-click="brandChainAnalysis(3)">三段品牌链</th>
+                                <th colspan="3" ng-class="n===4?'active':''" ng-click="brandChainAnalysis(4)">四段品牌链</th>
+                                <th colspan="2" ng-class="n===5?'active':''" ng-click="brandChainAnalysis(5)">五段及五段以上品牌链</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold">排名</td>
+                                    <td colspan="3" class="font-bold">品牌链结构</td>
+                                    <td class="font-bold">总消费频次</td>
+                                    <td class="font-bold">当月消费频次</td>
+                                    <td class="font-bold">当日消费频次</td>
+                                </tr>
+                                <tr ng-repeat="item in list">
+                                    <td ng-bind="$index+1"></td>
+                                    <td colspan="3" ng-bind="item.brand_link || 0"></td>
+                                    <td ng-bind="item.count || 0"></td>
+                                    <td ng-bind="item.todayMonth || 0"></td>
+                                    <td ng-bind="item.today || 0"></td>
+                                </tr>
+                                <tr ng-hide="list.length"><td>暂无数据!</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-2">
+                <div class="col-lg-6 col-xs-12" ng-controller="drainageRank">
+                    <div class="canvas-item drainageRank">
+                        <div class="item-title">推荐排行榜</div>
+                        <div id="drainageRank"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12" ng-controller="guestRank">
+                    <div class="canvas-item guestRank">
+                        <div class="item-title">核销排行榜</div>
+                        <div id="guestRank"></div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/echarts.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../lib/js/paging.js"></script>
+<script src="../../js/brandRelation.js"></script>
+</body>
+</html>

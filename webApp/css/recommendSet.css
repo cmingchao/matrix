@@ -1,0 +1,133 @@
+.topRecommend .topRecommend-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.topRecommend .topRecommend-brand-name{
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.topRecommend .brandRelate  .col{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.topRecommend .brandRelate  .col > hr{
+    height:3px;
+    max-width: 50px;
+    border:none;
+    margin: 30px auto 10px;
+}
+.topRecommend .brandRelate  .col > .name{
+    color: #666;
+    margin-bottom: 20px;
+}
+.topRecommend .brandRelate  .col > .value{
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.topRecommend .view-details  a,
+.topRecommend .view-details  .button,
+.mainRecommend .view-details  .button,
+.modal-footer .btn
+{
+    display: inline-block;
+    width:90px;
+    height:40px;
+    color: #fff;
+    line-height: 40px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #8C7EEC;
+    outline: none;
+    border: none;
+    padding: 0;
+}
+.topRecommend .view-details  .button.close{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    margin-left: 30px;
+}
+.mainRecommend .brand-item{
+    margin: 15px 0;
+}
+.mainRecommend .brand-item .circle{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e8e5fb;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.mainRecommend .view-details  .button{
+    margin-top: 15px;
+}
+/*从brandSale拿过来的样式*/
+.row{
+    margin-bottom: 10px;
+}
+.row-2{
+    margin-bottom: 30px;
+}
+.row-3 .canvas-item{
+    padding-bottom: 80px;
+    overflow-x: auto;
+    position: relative;
+}
+
+
+.tips{
+    color: #ccc;
+}
+.tips > span{
+    color: #666;
+}
+
+/*table*/
+.list table{
+    width:100%;
+    overflow: auto;
+}
+.list th{
+    height: 50px;
+    min-width: 50px;
+    padding-left: 2%;
+    background-color: #FCDC85;
+}
+.list td{
+    height: 46px;
+    padding-left: 2%;
+}
+.box{
+    bottom:10px;
+}
+/***************新增或修改*****************/
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 700px;
+    }
+}
+.modal-body{
+    padding-bottom: 0;
+}
+.list tr input{
+    position: relative;
+    top: 1px;
+}
+.modal .row-3 .canvas-item{
+    padding-bottom: 30px;
+}
+.modal .list table tbody{
+    display:block;
+    max-height:460px;
+    overflow-y:auto;
+}
+.modal .list table thead, .modal .list table tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}

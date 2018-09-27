@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>品牌关联</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/brand-basic-info.css">
+    <link rel="stylesheet" href="../../css/brand-relation.css">
+    <link rel="stylesheet" href="../../css/brand-chain-customer.css">
+    <link rel="stylesheet" href="../../css/brandRelation-second.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="row">
+                <div class="col col-lg-6 col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12" ng-controller="brandRelation">
+                            <div class="canvas-item brand-relation">
+                                <div class="item-title clearfix">
+                                    <div class="text">品牌关联图</div>
+                                    <div class="search fr">
+
+                                    </div>
+                                </div>
+                                <div class="angle angle-top"></div>
+                                <div id="brandRelation"></div>
+                                <div class="angle angle-bottom"></div>
+                                <div class="chains text-c">
+                                    <span class="chains-item" ng-click="chainsClick($index)" ng-repeat="item in chainList">{{$index+1}}链</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="canvas-item brand-chain-customer" ng-controller="brandChainCustomer">
+                                <div class="item-title">品牌链潜客统计</div>
+                                <div class="row">
+                                    <div class="col col-xs-3" ng-repeat="item in chainList">
+                                        <p class="img"><img src="../../image/ico_qianke.png" alt=""></p>
+                                        <p class="chain-name">{{$index+1}}链 潜客</p>
+                                        <p class="value" ng-bind="item.potentialCustomer || 0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-6 col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="canvas-item mainBrand" ng-controller="mainBrand">
+                                <div class="item-title">主品牌信息</div>
+                                <div class="main-brand-name font-middle color-pomo text-c" ng-bind="brandName || '无'"></div>
+                                <div class="clearfix text-c">
+                                    <div class="fl col-xs-6">品牌编码: <span ng-bind="brandCode || '无'"></span></div>
+                                    <div class="fl col-xs-6">综合指数: <span ng-bind="composite || 0"></span></div>
+                                </div>
+                                <div class="brandRelate text-c clearfix">
+                                    <div class="retail col col-sm-2 col-xs-4">
+                                        <hr class="back-pomo">
+                                        <p class="name">业态</p>
+                                        <p class="value" ng-bind="retail || '无'"></p>
+                                    </div>
+                                    <div class="sex col col-sm-2 col-xs-4">
+                                        <hr class="back-cpos">
+                                        <p class="name">性别比例</p>
+                                        <p class="value" ng-bind="sex || '无'"></p>
+                                    </div>
+                                    <div class="age col col-sm-2 col-xs-4">
+                                        <hr class="back-probe">
+                                        <p class="name">年龄段</p>
+                                        <p class="value" ng-bind="age || '无'"></p>
+                                    </div>
+                                    <div class="av-price col col-sm-2 col-xs-4">
+                                        <hr class="back-pomo">
+                                        <p class="name">品牌均价</p>
+                                        <p class="value"><span ng-bind="avPrice || '0.00'"></span></p>
+                                    </div>
+                                    <div class="distinct col col-sm-2 col-xs-4">
+                                        <hr class="back-cpos">
+                                        <p class="name">区分属性</p>
+                                        <p class="value" ng-bind="distinct || '无'"></p>
+                                    </div>
+                                    <div class="area col col-sm-2 col-xs-4">
+                                        <hr class="back-probe">
+                                        <p class="name">区域</p>
+                                        <p class="value" ng-bind="area || '无'"></p>
+                                    </div>
+                                </div>
+                                <div class="view-details text-c">
+                                    <a href="/html/brandDetails?nodeId={{nodeId}}&brandCode={{brandCode}}&c_brand_code={{c_brand_code}}">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="canvas-item brandChain" ng-controller="brandChain">
+                                <div class="item-title">
+                                    <div class="text">品牌链信息<span class="font-small">(从主品牌往外延伸)</span></div>
+                                </div>
+                                <div class="text-c clearfix">
+                                    <div class="col col-xs-12" ng-repeat="item in chainList">
+                                        <div ng-if="$index===0" class="chain-name">1链(最强关联)</div>
+                                        <div ng-if="$index!==0" class="chain-name">{{$index+1}}链</div>
+                                        <div class="brands">
+                                            <span ng-repeat="brand in item.nodes" ng-if="brand.show" ng-bind="brand.name || '无'"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/echarts.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/brandRelation-second.js"></script>
+</body>
+</html>

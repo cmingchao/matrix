@@ -1,0 +1,36 @@
+/*mainBrand*/
+.mainBrand .main-brand-name{
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.mainBrand .brandRelate  .col{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.mainBrand .brandRelate  .col > hr{
+    height:3px;
+    max-width: 50px;
+    border:none;
+    margin: 30px auto 10px;
+}
+.mainBrand .brandRelate  .col > .name{
+    color: #666;
+    margin-bottom: 20px;
+}
+.mainBrand .brandRelate  .col > .value{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.mainBrand .view-details  a,
+.mainBrand .view-details  .button
+{
+    display: inline-block;
+    width:90px;
+    height:40px;
+    color: #fff;
+    line-height: 40px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #8C7EEC;
+}

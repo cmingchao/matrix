@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>用户添加</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/addBrand.css">
+    <link rel="stylesheet" href="../../css/addUser.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="form-area" ng-controller="addUser">
+                <div class="item">
+                    <span>用户名 : </span>
+                    <input type="text" maxlength="20" ng-model="name">
+                </div>
+                <div class="item">
+                    <span>电话 : </span>
+                    <input type="text" maxlength="11" ng-model="phone">
+                </div>
+                <div class="item btn-group">
+                    <span>性别 : </span>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="text-container"></span>
+                        <span class="dropdown"></span>
+                    </button>
+                    <input class="hidden" type="text" ng-model="sex">
+                    <ul class="dropdown-menu">
+                        <li data-value="{{item.value}}" ng-bind="item.name" ng-repeat="item in sexList"></li>
+                    </ul>
+                </div>
+                <div class="birth item btn-group">
+                    <span>出生年月 : </span>
+                    <input size="16" type="text" ng-model="birthDate"  class="form_datetime">
+                </div>
+                <div class="item btn-group">
+                    <span>婚姻状况 : </span>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="text-container"></span>
+                        <span class="dropdown"></span>
+                    </button>
+                    <input class="hidden" type="text" ng-model="marriage">
+                    <ul class="dropdown-menu">
+                        <li data-value="{{item.value}}" ng-bind="item.name" ng-repeat="item in marriageList"></li>
+                    </ul>
+                </div>
+                <div class="item btn-group">
+                    <span class="hidden-xs">&nbsp;</span>
+                    <div class="btn-normal confirm" ng-click="addUser()">确定</div>
+                    <div class="btn-normal cancel" ng-click="back()">取消</div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../../lib/js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/addUser.js"></script>
+</body>
+</html>

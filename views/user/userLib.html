@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>用户库</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/userLib.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="row row-1">
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="canvas-item today-relate text-c" ng-controller="todayRelate">
+                        <div class="row">
+                            <div class="col col-xs-6">
+                                <div class="circle col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <img src="../../image/pic_hk.png" alt="今日新增人数">
+                                    </div>
+                                </div>
+                                <div class="text col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    <div class="row dis-table-cell">
+                                        <p>今日新增人数</p>
+                                        <p class="value color-cpos" ng-bind="userToday || 0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-xs-6">
+                                <div class="circle col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <img src="../../image/pic_all.png" alt="总用户人数">
+                                    </div>
+                                </div>
+                                <div class="text col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    <div class="row dis-table-cell">
+                                        <p>总用户人数</p>
+                                        <p class="value" ng-bind="userAll || 0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-xs-6">
+                                <div class="circle col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <img src="../../image/pic_cd.png" alt="今日触达">
+                                    </div>
+                                </div>
+                                <div class="text col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    <div class="row dis-table-cell">
+                                        <p>今日推荐</p>
+                                        <p class="value color-pomo" ng-bind="touchToday || 0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-xs-6">
+                                <div class="circle col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <img src="../../image/pic_zcd.png" alt="总触达">
+                                    </div>
+                                </div>
+                                <div class="text col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    <div class="row dis-table-cell">
+                                        <p>总推荐</p>
+                                        <p class="value" ng-bind="touchAll || 0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="canvas-item user-from" ng-controller="userFrom">
+                        <div class="item-title">用户来源</div>
+                        <div id="user-from"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="canvas-item user-sex" ng-controller="userSex">
+                        <div class="item-title">性别比例</div>
+                        <div id="user-sex"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-2">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="canvas-item user-age" ng-controller="userAge">
+                        <div class="item-title">年龄段分布</div>
+                        <div class="canvas-dom" id="user-age"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="canvas-item user-marriage" ng-controller="userMarriage">
+                        <div class="item-title">婚姻状况</div>
+                        <div class="canvas-dom" id="user-marriage"></div>
+                        <div class="row">
+                            <div class="col col-xs-4" ng-repeat="item in list">
+                                <div class="circle color-{{item.color}}" ng-bind="item.name"></div>
+                                <p class="value color-{{item.color}}"><span ng-bind="item.amount || 0"></span>人</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/echarts.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/userLib.js"></script>
+</body>
+</html>

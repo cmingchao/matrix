@@ -1,0 +1,19 @@
+.row-1 .canvas-item{
+    height:400px;
+}
+.row-2 .canvas-item{
+    height:360px;
+}
+
+/*canvas-dom*/
+.canvas-dom{
+    height:280px;
+    width:100%;
+}
+
+.today-relate .col a.name:hover,
+.today-relate .col a.name:focus,
+.today-relate .col a.name:active{
+    color: #000;
+    cursor: pointer;
+}

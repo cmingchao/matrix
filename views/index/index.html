@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/index.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="row row-1">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="canvas-item customer clearfix" ng-controller="customerSale">
+                        <div class="wrapper">
+                            <div class="toggle-customer-sale color-pomo text-r font-middle">
+                                <span ng-init="type=0" ng-bind="!type?'切换客流':'切换收益'" ng-click="type=!type"></span>
+                            </div>
+                            <div class="circle">
+                                <img src="../../image/bg_shouyi.png" alt="">
+                                <div class="text" ng-if="!type">
+                                    <p class="showType">今日收益</p>
+                                    <p class="value font-larger" ng-bind="data.s_today.toFixed(2) || 0"></p>
+                                </div>
+                                <div class="text" ng-if="type">
+                                    <p class="showType">今日客流</p>
+                                    <p class="value font-larger" ng-bind="data.c_today || 0"></p>
+                                </div>
+                            </div>
+                            <div class="values row">
+                                <div class="col-xs-6 yestoday">
+                                    <div ng-if="!type">昨日收益 <span ng-bind="data.s_yesterday.toFixed(2) || 0"></span></div>
+                                    <div ng-if="type">昨日客流 <span ng-bind="data.c_yesterday || 0"></span></div>
+                                </div>
+                                <div class="col-xs-6 thisMonth">
+                                    <div ng-if="!type">当月收益 <span ng-bind="data.s_month.toFixed(2) || 0"></span></div>
+                                    <div ng-if="type">当月客流 <span ng-bind="data.c_month || 0"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="canvas-item customer clearfix" ng-controller="realTimeRecommend">
+                        <div class="item-title font-middle">实时推荐</div>
+                        <div class="wrapper">
+                            <div class="circle">
+                                <img src="../../image/bg_shouyi.png" alt="">
+                                <div class="text">
+                                    <p class="showType">今日推荐</p>
+                                    <p class="value font-larger" ng-bind="data.s_today || 0"></p>
+                                </div>
+                            </div>
+                            <div class="values row">
+                                <div class="col-xs-6 yestoday">
+                                    <div>昨日推荐 <span ng-bind="data.s_yesterday || 0"></span></div>
+                                </div>
+                                <div class="col-xs-6 thisMonth">
+                                    <div>当月推荐 <span ng-bind="data.s_month || 0"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="canvas-item customer clearfix" ng-controller="realTimeVerificate">
+                        <div class="item-title font-middle">实时核销</div>
+                        <div class="wrapper">
+                            <div class="circle">
+                                <img src="../../image/bg_shouyi.png" alt="">
+                                <div class="text">
+                                    <p class="showType">今日核销</p>
+                                    <p class="value font-larger" ng-bind="data.s_today || 0"></p>
+                                </div>
+                            </div>
+                            <div class="values row">
+                                <div class="col-xs-6 yestoday">
+                                    <div>昨日核销 <span ng-bind="data.s_yesterday || 0"></span></div>
+                                </div>
+                                <div class="col-xs-6 thisMonth">
+                                    <div>当月核销 <span ng-bind="data.s_month || 0"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-2">
+                <div class="col-md-5 col-sm-12">
+                    <div class="canvas-item realtimeDynamics" ng-controller="realTimeDynamics">
+                        <div class="item-title clearfix">
+                            <span class="fl font-middle">实时动态</span>
+                            <a class="more color-pomo fr" href="/html/realtimeDynamics">更多</a>
+                        </div>
+                        <ul class="list">
+                            <li ng-repeat="item in list">
+                                <span class="time">{{item.time}}</span>：用户
+                                <span class="user color-pomo">{{item.name}}({{item.phone}})</span>入场,
+                                <span class="action">
+                                    购买了商品 {{item.goods_name}}
+                                    <span class="color-probe">{{item.number || 1}}</span>件
+                                </span>。
+                            </li>
+                        </ul>
+                        <!--无数据-->
+                        <ul class="list" ng-show="!list.length">
+                            <li>
+                                <span class="time">暂无数据!</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-12">
+                    <div class="canvas-item touch-relate clearfix">
+                        <div class="touch col-md-6 col-sm-12" ng-controller="touchRate">
+                            <div class="row">
+                                <div class="item-title font-middle">核销率</div>
+                                <div id="touch-amount"></div>
+                            </div>
+                        </div>
+                        <div class="touch-transmutation col-md-6 col-sm-12" ng-controller="verificateNumbersAndtotalSales">
+                            <div class="row">
+                                <div class="item-title font-middle">核销数和总销售额</div>
+                                <div id="touch-transmutation"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/echarts.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>实时动态</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/realTimeDynamics.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container" ng-controller="list">
+            <% include ../map.html %>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="canvas-item clearfix">
+                        <div class="item col col-xs-12">
+                            <!--<div class="title"><span ng-bind="item.time || '无'"></span></div>-->
+                            <ul class="list">
+                                <li ng-repeat="item in list">
+                                    <span class="time" ng-bind="item.time"></span>：用户
+                                    <span class="user color-pomo">{{item.name}}({{item.phone}})</span>入场,
+                                    <span class="action">购买了 {{item.goods_name}} <span class="color-probe">{{item.number || 1}}</span>件</span>。
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 text-c bottom">已经到底了</div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/realTimeDynamics.js"></script>
+</body>
+</html>

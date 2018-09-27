@@ -1,0 +1,66 @@
+
+#brandRelation{
+    height:540px;
+}
+@media (max-width: 767px) {
+    .row .canvas-item.brand-relation{
+        height:auto;
+    }
+    #brandRelation{
+        height:420px;
+    }
+}
+
+/*brand-relation*/
+#brandRelation{
+    width:90%;
+    margin-left: 5%;
+}
+.brand-relation .search{
+    width:200px;
+    height:34px;
+    float: right;
+}
+.brand-relation .search .input-group .clear{
+    position: absolute;
+    right:40px;
+    top:5px;
+    z-index: 5;
+    color: #666;
+    cursor: pointer;
+}
+.brand-relation .search .input-group .clear:hover{
+    color: #E80400;
+}
+.brand-relation .search .btn-default{
+    height:34px;
+    width:34px;
+    padding:0;
+    background: url("../image/ico_search.png") center/24px no-repeat;
+}
+.brand-relation .search .btn-default:hover{
+    background-image: url("../image/ico_search_on.png");
+}
+.brand-relation .search .btn-normal{
+    border: none;
+}
+.brand-relation .search .input-group .form-control{
+    transition: all  0.25s;
+    position: relative;
+    left:0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.brand-relation .search .input-group > hr{
+    height:0;
+    width:100%;
+    margin: 0;
+    border: none;
+}
+.brand-relation .search .input-group .form-control.hide-mine{
+    width:0;
+    padding: 0;
+    position: relative;
+    left:100%;
+    border-width: 0;
+}

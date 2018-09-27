@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/form-area.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="form-area" ng-controller="userManageSecond">
+                <div class="item">
+                    <span>用户名 : </span>
+                    <input type="text" ng-model="userName" placeholder="请输入用户名">
+                </div>
+                <div class="item">
+                    <span>密码 : </span>
+                    <input type="password" maxlength="6" placeholder="请输入六位数字的密码" ng-model="password_first">
+                </div>
+                <div class="item">
+                    <span>再次确认密码 : </span>
+                    <input type="password" maxlength="6" placeholder="请再次输入密码" ng-model="password_second">
+                </div>
+                <div class="item">
+                    <span>手机号 : </span>
+                    <input type="text" maxlength="11" ng-model="phone" placeholder="请输入11位有效手机号码">
+                </div>
+                <div class="item btn-group">
+                    <span class="hidden-xs">&nbsp;</span>
+                    <div class="btn-normal confirm" ng-click="confirm()">确定</div>
+                    <div class="btn-normal cancel" ng-click="back()">取消</div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/userManage-second.js"></script>
+</body>
+</html>

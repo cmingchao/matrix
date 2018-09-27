@@ -1,0 +1,28 @@
+{
+  "name": "matrix3",
+  "version": "1.0.0",
+  "description": "matrix项目第三版",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.x",
+    "cookie-parser": "^1.4.x",
+    "crypto": "^1.0.x",
+    "ejs": "^2.5.x",
+    "express": "^4.16.x",
+    "express-session": "^1.15.x",
+    "morgan": "^1.9.x",
+    "mysql": "^2.15.x",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.x"
+  },
+  "author": "liduowei",
+  "license": "ISC"
+}

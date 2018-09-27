@@ -1,0 +1,96 @@
+.row{
+    margin-bottom: 10px;
+}
+.row.row-3{
+    margin-top: 50px;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+
+#addBrand{
+    background-color: rgb(93,189,188);
+}
+#addBrand:hover{
+    background-color: rgba(93,189,188,.8);
+}
+
+/*search*/
+#search{
+    background-color: #8C7EEC;
+    margin-bottom: 0;
+}
+#search:hover{
+    background-color: rgba(140,126,236,.8);
+}
+/*tips*/
+.tips{
+    color: #ccc;
+}
+.tips > span{
+    color: #666;
+}
+
+/*list*/
+.list{
+    margin-bottom: 0;
+}
+.list > .item{
+    float: left;
+    width: 296.5px;
+    max-width:100%;
+    height:270px;
+    text-align: center;
+    margin:0 15px 48px;
+    position: relative;
+}
+.list > .item > .item-wrapper{
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.1);
+}
+@media (max-width: 767px) {
+    .list > .item{
+        width:100%;
+        margin: 0 0 48px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+.list > .item .code{
+    display: inline-block;
+    height:40px;
+    color: #333;
+    width:150px;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    max-width: 100%;
+    position: relative;
+    margin: 0 auto;
+    top:-20px;
+    border-radius: 20px;
+    background-color: #FCDC85;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.1);
+}
+.list > .item .name{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.list > .item .item-wrapper{
+    height:100%;
+}
+.list > .item .item-wrapper > p {
+    color: #666;
+    margin-bottom: 10px;
+}
+.list > .item .item-wrapper > p > span{
+    color: #333;
+}
+.list > .item .recommend{
+    height:50px;
+    line-height: 50px;
+    margin-top: 30px;
+    background-color: #F2F2F2;
+}
+.list > .item .item-wrapper .recommend > span{
+    color: #FA66A5;
+}

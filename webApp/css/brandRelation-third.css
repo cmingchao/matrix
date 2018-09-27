@@ -1,0 +1,86 @@
+/*brand-relation*/
+.brand-relation{
+    height:670px;
+}
+@media (max-width: 767px) {
+    #brandRelation {
+        height: 360px;
+    }
+}
+
+/*brandChain*/
+.brandChain .col{
+    text-align: center;
+    margin-top: 20px;
+}
+.brandChain .col > .circle{
+    width:90px;
+    height:90px;
+    margin: 0 auto;
+    background-color: #FCDC85;
+    border-radius: 50%;
+    display: table;
+}
+.brandChain .col > .circle .value{
+    font-size: 20px;
+}
+@media (max-width: 767px) {
+    .brandChain .col > .circle{
+        width:70px;
+        height:70px;
+    }
+}
+.brandChain .col .brandName{
+    font-weight: bold;
+    margin: 6px 0 10px;
+}
+.brandChain .col .retail{
+    color: #666;
+}
+
+.brandChain .col .retail > span{
+    color: #333;
+}
+
+/*brand-chain-customer*/
+.brand-chain-customer{
+    height:auto;
+}
+
+/*label-customer*/
+.label-customer .category > .col{
+    margin-top: 20px;
+}
+.label-customer .category > .col:nth-of-type(n+4){
+    margin-top: 32px;
+}
+.label-customer .col .customer-value{
+    background-color: #F2F2F2;
+    border-radius: 3px;
+    padding: 0 10px;
+    line-height: 35px;
+    font-size: 24px;
+    margin-top: 10px;
+    display: inline-block;
+}
+.label-customer .col .category-name{
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 3px;
+}
+.label-customer.canvas-item{
+    padding: 0;
+}
+.label-customer.canvas-item > .col{
+    padding: 4.545%;
+}
+.label-customer .customer-total{
+    background-color: #F2F2F2;
+}
+.label-customer .customer-total > .row{
+    height:100%;
+}
+
+.mainBrand .view-details  a:hover{
+    background-color: rgba(140,126,236,.8);
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>未找到</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: #666;
+        }
+        #page{
+            width: 100%;
+            display: table;
+        }
+        .container{
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .container .time{
+            color: #F43B3B;
+        }
+        .container .img{
+            margin-bottom: 20px;
+            max-width: 100%;
+        }
+        .container .img > img{
+            max-width: 80%;
+        }
+        .container > p{
+            margin-bottom: 10px;
+        }
+        .back-to-index{
+            width:140px;
+            height:50px;
+            display: inline-block;
+            border-radius: 3px;
+            line-height: 50px;
+            text-decoration: none;
+            color: #fff;
+            margin-top: 50px;
+            background-color:#8C7EEC;
+        }
+    </style>
+</head>
+<body>
+    <div id="page" ng-controller="page">
+        <div class="container" id="content">
+            <div class="img">
+                <img src="../image/404.png" alt="404">
+            </div>
+            <p>您访问的资源不存在,正在为您</p>
+            <p>跳转到上一页: <span class="time" ng-bind="timeLeft || 0"></span>秒</p>
+            <a class="btn back-to-index" href="/html/index">返回首页</a>
+        </div>
+    </div>
+<script src="../lib/js/jquery-1.9.1.js"></script>
+<script src="../lib/js/angular1.2.3.js"></script>
+<script src="../js/build/404.js"></script>
+</body>
+</html>

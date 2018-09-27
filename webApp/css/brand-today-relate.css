@@ -1,0 +1,34 @@
+/*today-relate*/
+.today-relate {
+    margin-bottom: 30px;
+}
+.today-relate .col{
+    text-align: center;
+    color: #666;
+}
+.today-relate .circle{
+    width: 80px;
+    height:80px;
+    text-align: center;
+    margin: 60px auto 10px;
+    border-radius: 50%;
+    background-color: RGBA(140,126,236,.2);
+}
+.today-relate .circle img{
+    width:100%;
+}
+.today-relate .guest .circle{
+    background-color: RGBA(93,189,188,.2);
+}
+.today-relate .transmutation .circle{
+    background-color: RGBA(250,175,102,.2);
+}
+.today-relate .col .value{
+    margin-top: 30px;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.today-relate .col .retail{
+    color: #333;
+}

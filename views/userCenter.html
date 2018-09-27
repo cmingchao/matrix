@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../lib/css/base.css">
+    <link rel="stylesheet" href="../css/userCenter.css">
+</head>
+<body>
+<div id="page">
+    <% include ./menu.html %>
+    <div id="content">
+        <% include ./header.html %>
+        <div id="container">
+            <% include ./map.html %>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="canvas-item user-center" ng-controller="userCenter">
+                        <div class="row">
+                            <div class="col col-xs-12">
+                                <div class="username">
+                                    <span class="name font-middle">用户名</span>
+                                    <div class="value">
+                                        <span ng-show="!username_edit" ng-bind="username_confirm || '无'"></span>
+                                    </div>
+                                    <div class="edit color-pomo" ng-click="toggle_username()">
+                                        <span ng-bind="username_edit?'收起':'编辑'"></span>
+                                        <span class="img"></span>
+                                    </div>
+                                    <div class="edit-panel row">
+                                        <div class="item col-xs-12">
+                                            <span class="name">名称 : </span>
+                                            <input type="text" ng-model="username">
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <span class="name">&nbsp;</span>
+                                            <div class="btn-normal" ng-click="update_username()">确定</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-xs-12">
+                                <div class="password">
+                                    <span class="name font-middle">密码</span>
+                                    <div class="value">
+                                        <span ng-show="!password_edit">密码由6位数字组成</span>
+                                    </div>
+                                    <div class="edit color-pomo" ng-click="toggle_password()">
+                                        <span ng-bind="password_edit?'收起':'编辑'"></span>
+                                        <span class="img"></span>
+                                    </div>
+                                    <div class="edit-panel row">
+                                        <div class="item col-xs-12">
+                                            <span class="name">原始密码 : </span>
+                                            <input type="password" ng-model="password_origin">
+                                        </div>
+                                        <div class="item col-xs-12">
+                                            <span class="name">新密码 : </span>
+                                            <input type="password" maxlength="6" ng-model="password_new" placeholder="密码由6位数字组成">
+                                        </div>
+                                        <div class="item col-xs-12">
+                                            <span class="name">确认密码 : </span>
+                                            <input type="password" maxlength="6" ng-model="password_again" placeholder="密码由6位数字组成">
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <span class="name">&nbsp;</span>
+                                            <div class="btn-normal" ng-click="update_password()">确定</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include ./footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../lib/js/jquery-1.9.1.js"></script>
+<script src="../lib/js/bootstrap.js"></script>
+<script src="../lib/js/angular1.2.3.js"></script>
+<script src="../lib/js/base.js"></script>
+<script src="../js/build/userCenter.js"></script>
+</body>
+</html>

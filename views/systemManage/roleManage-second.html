@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>角色管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/form-area.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="form-area" ng-controller="roleManageSecond">
+                <div class="item">
+                    <span>角色名 : </span>
+                    <input type="text" ng-model="roleName">
+                </div>
+                <div class="item">
+                    <span>角色编码 : </span>
+                    <input type="text" ng-model="roleCode">
+                </div>
+                <div class="item btn-group">
+                    <span class="hidden-xs">&nbsp;</span>
+                    <div class="btn-normal confirm" ng-click="addRole()">确定</div>
+                    <div class="btn-normal cancel" ng-click="back()">取消</div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/roleManage-second.js"></script>
+</body>
+</html>

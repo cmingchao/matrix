@@ -1,0 +1,60 @@
+<div id="menu-bar" class="navbar navbar-default" role="navigation">
+    <!--header section -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/html/index">
+            <img class="hidden-xs" src="../image/logo.png" alt="logo">
+            <span class="visible-xs">Matrix大数据管理</span>
+        </a>
+    </div>
+    <!-- menu section -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav nav-stacked menu panel-group"  id="accordion">
+            <% for(var key in menu){ %>
+                <% var item = menu[key]; %>
+            <li class="panel panel-default <%= item.children?'':'no-sub' %> <%= key %> <%= item.chosen?'current-page':'' %>" onclick="$.arrowIcon(this)">
+                <div class="panel-heading" role="tab">
+                    <span class="ico"></span>
+                    <%if(!item.children){%>
+                    <a href="<%= item.interface %>"><%= item.name %></a>
+                    <%}else{%>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapse_<%= key %>"><%= item.name%>
+                        <img src="../image/arrow-right.png" alt="arrowIcon"></a>
+                    <%}%>
+                </div>
+                <div class="panel-collapse collapse" role="tabpanel" id="collapse_<%= key %>">
+                    <%if(item.children){%>
+                    <ul class="childMenu">
+                        <%for(var children in item.children){%>
+                        <% var item_child = item.children[children]; %>
+                        <li class="<%= item_child.chosen?'active':'' %>">
+                            <a href="<%=item_child.interface%>"><%= item_child.name %></a>
+                        </li>
+                        <%}%>
+                    </ul>
+                    <%}%>
+                </div>
+            </li>
+            <% } %>
+            <!--个人中心-->
+            <li class="panel panel-default visible-xs userCenter ">
+                <div class="panel-heading" role="tab">
+                    <span class="ico"></span>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_userCenter">个人中心</a>
+                </div>
+                <div class="panel-collapse collapse" role="tabpanel" id="collapse_userCenter">
+                    <ul class="childMenu">
+                        <li class="username"> <a href="/html/userCenter">设置(<%= username %>)</a> </li>
+                        <li> <a href="#" onclick="$.logout()">退出</a> </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

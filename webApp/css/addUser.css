@@ -1,0 +1,9 @@
+.btn-group.birth > input{
+    /*width:70px;*/
+    /*text-align: center;*/
+    /*padding-left: 0;*/
+    margin-bottom: 10px;
+}
+.btn-group.birth small{
+    color: #ccc;
+}

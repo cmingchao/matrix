@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>聚类用户分析</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../lib/css/paging.css">
+    <link rel="stylesheet" href="../../css/userGroup.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container" ng-controller="userRFMGroup">
+            <div id="map" class="font-middle clearfix">
+                <span class="fl">聚类用户分析</span>
+                <!--<span class="fr back" ng-click="myBack()">返回</span>-->
+            </div>
+            <div class="row">
+                <div class="col col-lg-6 col-sm-12 col-xs-12">
+                    <div class="canvas-item RFM-model">
+                        <div class="item-title clearfix">
+                            <div class="fl" ng-bind="RFM_type_name || '无'"></div>
+                            <a class="fr font-normal color-pomo" href="/html/userList">用户列表</a>
+                        </div>
+                        <div class="list">
+                            <table cellpadding="0" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>年龄</th>
+                                    <th>号码</th>
+                                    <th>婚姻</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="item in list">
+                                    <td ng-bind="(pageIndex-1)*10+$index+1"></td>
+                                    <td ng-bind="item.name || '未知'"></td>
+                                    <td ng-bind="item.sex || '未知'"></td>
+                                    <td ng-bind="item.age || '未知'"></td>
+                                    <td ng-bind="item.phone || '未知'"></td>
+                                    <td ng-bind="item.marriage || '未知'"></td>
+                                    <td>
+                                        <a href="/html/userDetails?userPhone={{item.phone}}" class="btn">详情</a>
+                                    </td>
+                                </tr>
+                                <tr ng-show="!list.length"><td>暂无数据!</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="box" id="box"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-6 col-sm-12 col-xs-12">
+                    <div class="row RFM-details">
+                        <div class="col-xs-12 text-c">
+                            <div class="rfm-img"><img src="../../image/userAnalysis-group/ico_person.png" alt="聚类用户"></div>
+                            <div class="rfm" ng-bind="RFM || '无'"></div>
+                            <div class="rfm-value"><span ng-bind="personTotal || 0"></span>人</div>
+                            <div class="row">
+                                <div class="col item col-xs-4">
+                                    <div class="img"><img src="../../image/userAnalysis-group/pic_R.png" alt="RFM_R"></div>
+                                    <div class="rfm">最近一次消费(Recency)</div>
+                                    <div class="value font-larger" ng-bind="r_value || '无'"></div>
+                                </div>
+                                <div class="col item col-xs-4">
+                                    <div class="img"><img src="../../image/userAnalysis-group/pic_F.png" alt="RFM_F"></div>
+                                    <div class="rfm">消费频率(Frequency)</div>
+                                    <div class="value font-larger" ng-bind="f_value || '无'"></div>
+                                </div>
+                                <div class="col item col-xs-4">
+                                    <div class="img"><img src="../../image/userAnalysis-group/pic_M.png" alt="RFM_M"></div>
+                                    <div class="rfm">消费金额(Monetary)</div>
+                                    <div class="value font-larger" ng-bind="m_value || 0"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-lg-8 col-md-8 col-sm-12">
+                    <div class="canvas-item consume" ng-controller="consume">
+                        <div class="item-title">消费趋势</div>
+                        <div id="consume"></div>
+                    </div>
+                </div>
+                <div class="col col-lg-4 col-md-4 col-sm-12">
+                    <div class="canvas-item sex" ng-controller="sex">
+                        <div class="item-title">性别比例</div>
+                        <div id="sex"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-lg-8 col-md-8 col-sm-12">
+                    <div class="canvas-item age" ng-controller="age">
+                        <div class="item-title">年龄段分布</div>
+                        <div id="age"></div>
+                    </div>
+                </div>
+                <div class="col col-lg-4 col-md-4 col-sm-12">
+                    <div class="canvas-item marriage" ng-controller="marriage">
+                        <div class="item-title">婚姻状况</div>
+                        <div id="marriage"></div>
+                        <div class="row text-c">
+                            <div class="item col-xs-4">
+                                <div class="circle color-cpos">未婚</div>
+                                <p><span ng-bind="unMarriage || 0"></span>人</p>
+                            </div>
+                            <div class="item col-xs-4">
+                                <div class="circle color-pomo">已婚</div>
+                                <p><span ng-bind="marriaged || 0"></span>人</p>
+                            </div>
+                            <div class="item col-xs-4">
+                                <div class="circle color-probe">未知</div>
+                                <p><span ng-bind="unknow || 0"></span>人</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/echarts.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../lib/js/paging.js"></script>
+<script src="../../js/userGroup.js"></script>
+</body>
+</html>

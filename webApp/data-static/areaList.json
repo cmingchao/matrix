@@ -1,0 +1,12 @@
+[
+  {"name":"国产","value":1},
+  {"name":"北美","value":2},
+  {"name":"日韩","value":3},
+  {"name":"东南亚","value":4},
+  {"name":"澳洲","value":5},
+  {"name":"欧洲","value":6},
+  {"name":"南美","value":7},
+  {"name":"非洲","value":8},
+  {"name":"港澳台","value":9},
+  {"name":"其他","value":0}
+]

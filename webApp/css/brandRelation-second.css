@@ -1,0 +1,65 @@
+.brand-relation{
+    height:670px;
+}
+.brand-relation .chains .chains-item{
+    display: inline-block;
+    width:40px;
+    line-height:20px;
+    border-radius: 3px;
+    background: #E5E5E5;
+    text-align: center;
+    margin: 20px 10px 0;
+    cursor: pointer;
+    color: #333;
+}
+.brand-relation .chains .chains-item:hover{
+    color: #8c7eec;
+}
+.mainBrand .view-details  a:hover{
+    background-color: rgba(140,126,236,.8);
+}
+#brandRelation{
+    height:480px;
+}
+@media (max-width: 767px) {
+    .brand-relation{
+        height:520px;
+    }
+    #brandRelation{
+        height:340px;
+    }
+}
+
+/*mainBrand*/
+.mainBrand{
+    height:330px;
+}
+@media (max-width: 767px) {
+    .mainBrand{
+        height:auto;
+    }
+}
+
+/*brandChain*/
+.brandChain{
+    height:560px;
+}
+@media (max-width: 767px) {
+    .brandChain{
+        height:auto;
+    }
+}
+.brandChain .chain-name{
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.brandChain .brands{
+    line-height: 56px;
+    background-color: #F2F2F2;
+}
+.brandChain .brands > span{
+    display: inline-block;
+    margin: 0 10px;
+}

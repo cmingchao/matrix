@@ -1,0 +1,38 @@
+.row{
+    margin-bottom: 10px;
+}
+.row-2{
+    margin-bottom: 30px;
+}
+.row-3 .canvas-item{
+    padding-bottom: 80px;
+    overflow-x: auto;
+    position: relative;
+}
+
+
+.tips{
+    color: #ccc;
+}
+.tips > span{
+    color: #666;
+}
+
+/*table*/
+.list table{
+    width:100%;
+    overflow: auto;
+}
+.list th{
+    height: 50px;
+    min-width: 50px;
+    padding-left: 2%;
+    background-color: #FCDC85;
+}
+.list td{
+    height: 46px;
+    padding-left: 2%;
+}
+.box{
+    bottom:10px;
+}

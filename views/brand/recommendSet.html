@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>推荐设置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../lib/css/paging.css">
+    <link rel="stylesheet" href="../../css/search-condition.css">
+    <link rel="stylesheet" href="../../css/recommendSet.css">
+</head>
+<body>
+<div id="page" ng-controller="recommendSet">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="row">
+                <div class="col col-lg-4 col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="canvas-item topRecommend">
+                                <div class="item-title">置顶推荐</div>
+                                <div class="topRecommend-icon">
+                                    <img src="../../image/pic_yl.png" alt="置顶推荐">
+                                </div>
+                                <div class="topRecommend-brand-name font-middle text-c" ng-bind="topBrandInfo.brandName || '未知'"></div>
+                                <div class="brandRelate text-c clearfix">
+                                    <div class="row">
+                                        <div class="retail col col-sm-4 col-xs-4">
+                                            <hr class="back-pomo">
+                                            <p class="name">业态</p>
+                                            <p class="value" ng-bind="topBrandInfo.retail || '未知'"></p>
+                                        </div>
+                                        <div class="sex col col-sm-4 col-xs-4">
+                                            <hr class="back-cpos">
+                                            <p class="name">性别比例</p>
+                                            <p class="value" ng-bind="topBrandInfo.sex || '未知'"></p>
+                                        </div>
+                                        <div class="age col col-sm-4 col-xs-4">
+                                            <hr class="back-probe">
+                                            <p class="name">年龄段</p>
+                                            <p class="value" ng-bind="topBrandInfo.age || '未知'"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="av-price col col-sm-4 col-xs-4">
+                                            <hr class="back-pomo">
+                                            <p class="name">品牌均价</p>
+                                            <p class="value"><span ng-bind="topBrandInfo.avPrice || '未知'"></span></p>
+                                        </div>
+                                        <div class="distinct col col-sm-4 col-xs-4">
+                                            <hr class="back-cpos">
+                                            <p class="name">区分属性</p>
+                                            <p class="value" ng-bind="topBrandInfo.distinct || '未知'"></p>
+                                        </div>
+                                        <div class="area col col-sm-4 col-xs-4">
+                                            <hr class="back-probe">
+                                            <p class="name">区域</p>
+                                            <p class="value" ng-bind="topBrandInfo.area || '未知'"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="view-details text-c">
+                                    <button class="button" data-target="#myModal-1" data-toggle="modal" ng-click="getBrand()">设置</button>
+                                    <!--<button class="button close" ng-click="">关闭</button>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-8 col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="canvas-item mainRecommend">
+                                <div class="item-title">主打推荐</div>
+                                <div class="brandRelate text-c clearfix">
+                                    <div class="row">
+                                        <div class="brand-item col-md-3 col-sm-3 col-xs-6" ng-repeat="item in mainRecommendBrandList track by $index">
+                                            <div class="circle color-pomo font-larger font-bold" ng-bind="$index+1"></div>
+                                            <p class="brand-name text-c" ng-bind="item.brandName || '未知'"></p>
+                                        </div>
+                                        <div ng-hide="mainRecommendBrandList.length!=0">暂无主打推荐品牌!</div>
+                                    </div>
+                                </div>
+                                <div class="view-details text-c">
+                                    <button class="button" data-target="#myModal-2" data-toggle="modal" ng-click="getBrand()">设置</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+    <!-- 模态框（Modal）置顶推荐 -->
+    <div class="modal fade" id="myModal-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title text-c" id="myModalLabel-1">
+                        品牌选择
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row row-1">
+                        <div class="col-xs-12">
+                            <div class="condition-sec clearfix">
+                                <div class="item">
+                                    <span>品牌名称 : </span>
+                                    <input type="text" ng-blur="search()" ng-change="state=1" ng-model="name">
+                                </div>
+                                <div class="item btn-group retail">
+                                    <span>业态 : </span>
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="text-container"></span>
+                                        <span class="dropdown"></span>
+                                    </button>
+                                    <span class="clear">×</span>
+                                    <input class="hidden" type="text" ng-change="state=1;chooseType()" ng-model="retail">
+                                    <ul class="dropdown-menu">
+                                        <li data-value="{{item.value}}" ng-bind="item.name" ng-repeat="item in retailList"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-2">
+                        <div class="tips col-xs-12">
+                            共<span ng-bind="brandTotal || 0"></span>个品牌
+                        </div>
+                    </div>
+                    <div class="row row-3">
+                        <div class="col-xs-12">
+                            <div class="canvas-item list">
+                                <table cellpadding="0" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>品牌名称</th>
+                                        <th>业态</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="item in list_1">
+                                        <td>
+                                            <input type="radio" name="radio" ng-model="item.state"  ng-change="radioChange(item.brand_code)">
+                                            <label for="" ng-bind="$index+1"></label>
+                                            <!--<label for="" ng-bind="(pageIndex-1)*10+$index+1"></label>-->
+                                        </td>
+                                        <td ng-bind="item.name_cn || item.name_en"></td>
+                                        <td ng-bind="item.retail || '无'"></td>
+                                    </tr>
+                                    <tr ng-show="!list_1.length"><td>暂无数据!</td></tr>
+                                    </tbody>
+                                </table>
+                                <!--<div class="box" id="box"></div>-->
+                            </div>
+                            <p>备注：当不选择时，表示清空推荐的品牌</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-c">
+                    <button type="button" class="btn btn-default" ng-click="mySubmit()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框（Modal） 主打推荐-->
+    <div class="modal fade" id="myModal-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title text-c" id="myModalLabel-2">
+                        品牌选择
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row row-1">
+                        <div class="col-xs-12">
+                            <div class="condition-sec clearfix">
+                                <div class="item">
+                                    <span>品牌名称 : </span>
+                                    <input type="text" ng-blur="filterBrand()" ng-change="state=1;" ng-model="name">
+                                </div>
+                                <div class="item btn-group retail">
+                                    <span>业态 : </span>
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="text-container"></span>
+                                        <span class="dropdown"></span>
+                                    </button>
+                                    <span class="clear">×</span>
+                                    <input class="hidden" type="text" ng-change="state=1;filterBrand()" ng-model="retail">
+                                    <ul class="dropdown-menu">
+                                        <li data-value="{{item.value}}" ng-bind="item.name" ng-repeat="item in retailList"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-2">
+                        <div class="tips col-xs-12">
+                            共<span ng-bind="list_2.length || 0"></span>个品牌
+                        </div>
+                    </div>
+                    <div class="row row-3">
+                        <div class="col-xs-12">
+                            <div class="canvas-item list">
+                                <table cellpadding="0" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            <!--<input type="checkbox" id="order-number" ng-model="selectAll" ng-change="changeSeletAll();">-->
+                                            <label for="order-number">序号</label>
+                                        </th>
+                                        <th>品牌名称</th>
+                                        <th>业态</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="item in list_2">
+                                        <td>
+                                            <input type="checkbox" ng-model="item.state" id="{{$index+1}}" ng-change="checkBoxChange(item)">
+                                            <label for="{{$index+1}}" ng-bind="$index+1"></label>
+                                        </td>
+                                        <td ng-bind="item.name_cn || item.name_en"></td>
+                                        <td ng-bind="item.retail || '无'"></td>
+                                    </tr>
+                                    <tr ng-show="!list_2.length"><td>暂无数据!</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>已选择品牌<span class="color-pomo" ng-bind="checkedData.length"></span>个(备注：当不选择时，表示清空推荐的品牌，最多选择15个)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-c">
+                    <button type="button" class="btn btn-default" ng-click="addAll()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="../../lib/js/jquery-1.9.1.js"></script>
+    <script src="../../lib/js/bootstrap.js"></script>
+    <script src="../../lib/js/angular1.2.3.js"></script>
+    <script src="../../lib/js/base.js"></script>
+    <script src="../../lib/js/paging.js"></script>
+    <script src="../../js/recommendSet.js"></script>
+</body>
+</html>

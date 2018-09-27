@@ -1,0 +1,16 @@
+[
+  {"name":"餐食","value":10},
+  {"name":"轻餐","value":11},
+  {"name":"服装","value":12},
+  {"name":"化妆品","value":13},
+  {"name":"亲子类","value":14},
+  {"name":"娱乐休闲类","value":15},
+  {"name":"皮具","value":16},
+  {"name":"内衣","value":17},
+  {"name":"数码","value":18},
+  {"name":"饰品","value":19},
+  {"name":"生活用品","value":20},
+  {"name":"珠宝手表","value":21},
+  {"name":"个人护理","value":22},
+  {"name":"定义类","value":23}
+]

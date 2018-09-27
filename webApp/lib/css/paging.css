@@ -1,0 +1,84 @@
+.box {
+  height: 30px;
+  min-width: 286px;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  float: left;
+  position: absolute;
+  left:50%;
+  bottom:-10px;
+  transform: translateX(-50%);
+}
+.box button {
+  width:30px;
+  height: 30px;
+  float: left;
+  display:block;
+  margin-right: 4px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid #ebebeb;
+  background-color: #ffffff;
+}
+.box .prePage{
+  background: url("../../image/arrow-left.png") center/100% no-repeat;
+}
+.box .nextPage{
+  background: url("../../image/arrow-right.png") center/100% no-repeat;
+  margin-right: 12px;
+}
+.box .first-page,
+.box .last-page {
+  margin: 0;
+}
+.box .pageWrap {
+  height: 30px;
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+}
+.box .pageWrap ul {
+  width: 100000px;
+  height: 30px;
+  float: left;
+}
+.box .pageWrap ul li {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin-right: 4px;
+  border: 1px solid #E6E6E6;
+  line-height: 30px;
+  box-sizing: border-box;
+  cursor: pointer;
+  float: left;
+  color: #999;
+}
+.box .pageWrap ul .sel-page {
+  background-color: #8C7EEC;
+  border-color: #8C7EEC;
+  color: #ffffff;
+}
+.box .pageWrap ul .sel-page:hover{
+  background-color: rgba(146,126,236,.8);
+  border-color: rgba(146,126,236,.8);
+}
+.box .jump-text {
+  width: 40px;
+  height: 30px;
+  box-sizing: border-box;
+  text-align: center;
+  float: left;
+  border:1px solid #ebebeb;
+}
+.box .jump-button {
+  margin: 0;
+  float: left;
+}
+.box .total-pages,
+.box .total-count {
+  margin-left: 10px;
+  float: left;
+  font-size: 14px;
+}

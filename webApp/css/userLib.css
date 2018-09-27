@@ -1,0 +1,51 @@
+.today-relate .text{
+    display: table;
+    word-break: break-all;
+}
+.dis-table-cell{
+    height:80px;
+}
+
+/*today-relate*/
+.canvas-item.today-relate{
+    padding: 0;
+    box-shadow: none;
+}
+.today-relate > .row .col{
+    padding: 40px 0;
+}
+@media (max-width: 767px) {
+    .today-relate > .row .col{
+        padding: 20px 0;
+    }
+}
+.today-relate .text .value{
+    font-size: 24px;
+}
+
+/*user*/
+#user-from,
+#user-sex{
+    height:234px;
+}
+#user-age{
+    height:300px;
+}
+
+/*user-marriage*/
+#user-marriage{
+    height:200px;
+}
+.user-marriage .col{
+    text-align: center;
+}
+.user-marriage .col .circle{
+    width:70px;
+    height:70px;
+    line-height: 70px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    background-color: #F3F3F3;
+}

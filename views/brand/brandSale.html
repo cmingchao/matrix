@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>品牌销售</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../lib/css/paging.css">
+    <link rel="stylesheet" href="../../css/search-condition.css">
+    <link rel="stylesheet" href="../../css/brandSale.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container" ng-controller="controllerList">
+            <% include ../map.html %>
+            <div class="row row-1">
+                <div class="col-xs-12">
+                    <div class="condition-sec clearfix">
+                        <div class="item">
+                            <span>品牌名称 : </span>
+                            <input type="text" ng-blur="search()" ng-change="state=1" ng-model="name">
+                        </div>
+                        <div class="item btn-group retail">
+                            <span>业态 : </span>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="text-container"></span>
+                                <span class="dropdown"></span>
+                            </button>
+                            <span class="clear">×</span>
+                            <input class="hidden" type="text" ng-change="state=1;chooseType()" ng-model="retail">
+                            <ul class="dropdown-menu">
+                                <li data-value="{{item.value}}" ng-bind="item.name" ng-repeat="item in retailList"></li>
+                            </ul>
+                        </div>
+                        <div class="item btn-group init distinct">
+                            <span>区分属性 : </span>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="text-container"></span>
+                                <span class="dropdown"></span>
+                            </button>
+                            <span class="clear">×</span>
+                            <input class="hidden" type="text" ng-change="state=1;search()" ng-model="distinct">
+                            <ul class="dropdown-menu">
+                                <li data-value="{{item.value}}" repeat-finish="renderRepeatEnd()" ng-bind="item.name" ng-repeat="item in distinction"></li>
+                            </ul>
+                        </div>
+                        <div class="item btn-group init price">
+                            <span>品牌均价 : </span>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="text-container"></span>
+                                <span class="dropdown"></span>
+                            </button>
+                            <span class="clear">×</span>
+                            <input class="hidden" type="text" ng-change="state=1;search()" ng-model="avPrice">
+                            <ul class="dropdown-menu">
+                                <li data-value="{{item.value}}" repeat-finish="renderRepeatEnd()" ng-repeat="item in avPriceList">{{item.name}}(元)</li>
+                            </ul>
+                        </div>
+                        <div class="item btn-group">
+                            <span>区域 : </span>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="text-container"></span>
+                                <span class="dropdown"></span>
+                            </button>
+                            <span class="clear">×</span>
+                            <input class="hidden" type="text" ng-change="state=1;search()" ng-model="area">
+                            <ul class="dropdown-menu">
+                                <li data-value="{{item.value}}" ng-bind="item.name" ng-repeat="item in areaList"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-2">
+                <div class="tips col-xs-12">
+                    共<span ng-bind="brandTotal || 0"></span>个品牌，
+                    总销售金额<span ng-bind="saleTotal.toFixed(2) || 0"></span>元
+                </div>
+            </div>
+            <div class="row row-3">
+                <div class="col-xs-12">
+                    <div class="canvas-item list">
+                        <table cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>品牌名称</th>
+                                    <th>业态</th>
+                                    <th>区分属性</th>
+                                    <th>品牌均价</th>
+                                    <th>区域</th>
+                                    <th>最近一次核销时间</th>
+                                    <th>最近一次核销金额</th>
+                                    <th>总销售金额</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in list">
+                                    <td ng-bind="(pageIndex-1)*10+$index+1"></td>
+                                    <td ng-bind="item.brand_name || '未知'"></td>
+                                    <td ng-bind="item.retail || '无'"></td>
+                                    <td ng-bind="item.distinct || '无'"></td>
+                                    <td ng-bind="item.avPrice || '无'"></td>
+                                    <td ng-bind="item.area || '无'"></td>
+                                    <td ng-bind="item.recent_time || '未知'"></td>
+                                    <td ng-bind="item.verify_amount.toFixed(2) || 0"></td>
+                                    <td ng-bind="item.total.toFixed(2) || '0.00'"></td>
+                                </tr>
+                                <tr ng-show="!list.length"><td>暂无数据!</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="box" id="box"></div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/echarts.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../lib/js/paging.js"></script>
+<script src="../../js/brandSale.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>品牌详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/css/base.css">
+    <link rel="stylesheet" href="../../css/brand-relation.css">
+    <link rel="stylesheet" href="../../css/brand-basic-info.css">
+    <link rel="stylesheet" href="../../css/brand-today-relate.css">
+    <link rel="stylesheet" href="../../css/brandDetails.css">
+</head>
+<body>
+<div id="page">
+    <% include ../menu.html %>
+    <div id="content">
+        <% include ../header.html %>
+        <div id="container">
+            <% include ../map.html %>
+            <div class="row">
+                <div class="col col-lg-4 col-md-6 col-xs-12">
+                    <div class="row">
+                        <div class="col col-lg-12 col-md-12 col-xs-12">
+                            <div class="canvas-item mainBrand" ng-controller="mainBrand">
+                                <div class="main-brand-name font-middle color-pomo text-c" ng-bind="brandName || '未知'"></div>
+                                <div class="clearfix text-c">
+                                    <div class="col-xs-12">品牌编码: <span ng-bind="brandCode || '未知'"></span></div>
+                                    <div class="col-xs-12 add-time">入驻时间: <span ng-bind="addTime || '未知'"></span></div>
+                                </div>
+                                <div class="brandRelate text-c clearfix">
+                                    <div class="row">
+                                        <div class="retail col col-xs-4">
+                                            <hr class="back-pomo">
+                                            <p class="name">业态</p>
+                                            <p class="value" ng-bind="retail || '未知'"></p>
+                                        </div>
+                                        <div class="sex col col-xs-4">
+                                            <hr class="back-cpos">
+                                            <p class="name">性别比例</p>
+                                            <p class="value" ng-bind="sex || '未知'"></p>
+                                        </div>
+                                        <div class="age col col-xs-4">
+                                            <hr class="back-probe">
+                                            <p class="name">年龄段</p>
+                                            <p class="value" ng-bind="age || '未知'"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="av-price col col-xs-4">
+                                            <hr class="back-pomo">
+                                            <p class="name">品牌均价</p>
+                                            <p class="value"><span ng-bind="avPrice || '未知'"></span></p>
+                                        </div>
+                                        <div class="distinct col col-xs-4">
+                                            <hr class="back-cpos">
+                                            <p class="name">区分属性</p>
+                                            <p class="value" ng-bind="distinct || '未知'"></p>
+                                        </div>
+                                        <div class="area col col-xs-4">
+                                            <hr class="back-probe">
+                                            <p class="name">区域</p>
+                                            <p class="value" ng-bind="area || '未知'"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="view-details text-c">
+                                    <div class="button" ng-show="c_brand_code" ng-click="relationBrand()">关联品牌</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-12 col-md-12 col-xs-12">
+                            <div class="canvas-item sex" ng-controller="sex">
+                                <div class="item-title">会员群体性别比例</div>
+                                <div id="sex"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-4 col-md-6 col-xs-12">
+                    <div class="row">
+                        <div class="col col-lg-12 col-md-12 col-xs-12">
+                            <div class="canvas-item composite" ng-controller="composite">
+                                <div class="item-title">综合指数</div>
+                                <div id="composite"></div>
+                                <div class="text-c">综合指数: <span class="font-larger" ng-bind="composite || 0"></span></div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-12 col-md-12 col-xs-12">
+                            <div class="canvas-item age" ng-controller="age">
+                                <div class="item-title">会员群体年龄分布</div>
+                                <div id="age"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-4 col-md-12 col-xs-12">
+                    <div class="row">
+                        <div class="col col-lg-12 col-md-6 col-xs-12">
+                            <div class="canvas-item clearfix" style="padding: 0;" ng-controller="todayRelate">
+                                <div class="today-relate">
+                                    <div class="row">
+                                        <div class="drainage col col-xs-4">
+                                            <div class="circle"><img src="../../image/tuijian.png" alt="总收益"></div>
+                                            <p>今日收益</p>
+                                            <p class="value" ng-bind="drainage.today.toFixed(2) || 0"></p>
+                                            <p>总收益</p>
+                                            <p class="value total" ng-bind="drainage.total.toFixed(2) || 0"></p>
+                                        </div>
+                                        <div class="guest col col-xs-4">
+                                            <div class="circle"><img src="../../image/hexiao.png" alt="获客"></div>
+                                            <p>今日核销</p>
+                                            <p class="value" ng-bind="guest.today || 0"></p>
+                                            <p>总核销量</p>
+                                            <p class="value total" ng-bind="guest.total || 0"></p>
+                                        </div>
+                                        <div class="transmutation col col-xs-4">
+                                            <div class="circle"><img src="../../image/pic_zhl.png" alt="转化率"></div>
+                                            <p class="white-space-nowrap">今日转化率</p>
+                                            <p class="value"><span ng-bind="transmutation.today>100?100:transmutation.today || 0"></span>%</p>
+                                            <p class="white-space-nowrap">平均转化率</p>
+                                            <p class="value total"><span ng-bind="transmutation.total>100?100:transmutation.total || 0"></span>%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="earningsTotal col-xs-12">
+                                    <div class="dis-table">
+                                        <div class="dis-table-cell text-c">
+                                            <p class="name">总收益</p>
+                                            <p class="value" ng-bind="earningsTotal.toFixed(2) || 0"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-12 col-md-6 col-xs-12">
+                            <div class="canvas-item verify" ng-controller="verify">
+                                <div class="item-title">品牌核销</div>
+                                <div id="verify"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include ../footer.html %>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery-1.9.1.js"></script>
+<script src="../../lib/js/bootstrap.js"></script>
+<script src="../../lib/js/echarts.js"></script>
+<script src="../../lib/js/angular1.2.3.js"></script>
+<script src="../../lib/js/base.js"></script>
+<script src="../../js/brandDetails.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+[
+  {"name":"3天","value":3},
+  {"name":"5天","value":5},
+  {"name":"一周","value":7},
+  {"name":"两周","value":14},
+  {"name":"三周","value":21},
+  {"name":"五周","value":35}
+]
